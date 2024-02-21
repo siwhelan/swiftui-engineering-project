@@ -14,7 +14,7 @@ struct Item: Decodable {
 
 class PostsView: ObservableObject {
     @Published var posts: [Post] = []
-    var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjVkNGIwYWUwYzhmZDYxZDBlZDFmNDEwIiwiaWF0IjoxNzA4NTIzNTA3LCJleHAiOjE3MDg1MjQxMDd9.fbccplfPmMCaEH8xmMtq6TMO0sRhF6pmJ0zchIHlPQA"
+    var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjVkNWZiYjBkZmIzMmU4NjU5ZmU5MTYyIiwiaWF0IjoxNzA4NTI2NTI1LCJleHAiOjE3MDg1MjcxMjV9.yExJzuuIc_Ac7jVhPO10L01wm-4ACxbDolz_cT4zTx8"
     
     func fetchPosts() {
         if let url = URL(string: "http://127.0.0.1:8080/posts") {
