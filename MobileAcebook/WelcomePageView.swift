@@ -18,14 +18,15 @@ struct WelcomePageView: View {
                         .font(.largeTitle)
                         .padding(.bottom, 20)
                         .accessibilityIdentifier("welcomeText")
+                     
                     
-                    Spacer()
+                    //Spacer()
                     
-                    Image("makers-logo")
+                    Image("acebook-logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
-                        .accessibilityIdentifier("makers-logo")
+                        .accessibilityIdentifier("acebook-logo")
                     
                     Spacer()
                     
