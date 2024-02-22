@@ -10,9 +10,10 @@ import PhotosUI
 
 class LoggedInUser: ObservableObject {
     @Published var user: User?
-    @Published var profile: User?
-    
-    var token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjVkNGIwYWUwYzhmZDYxZDBlZDFmNDEwIiwiaWF0IjoxNzA4NTIzNTA3LCJleHAiOjE3MDg1MjQxMDd9.fbccplfPmMCaEH8xmMtq6TMO0sRhF6pmJ0zchIHlPQA"
+
+
+    var token = retrieveTokenFromKeychain()?.token
+
     
     
     
@@ -21,17 +22,17 @@ class LoggedInUser: ObservableObject {
           var request = URLRequest(url: url)
           request.httpMethod = "GET"
           request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
             request.addValue("application/json", forHTTPHeaderField: "Accept")
-          URLSession.shared.dataTask(with: request) { data, response, error in
-              if let data = data, let result = try? JSONDecoder().decode(Item.self, from:data) {
-                  DispatchQueue.main.async {
-                      self.user = result.user
-                  }
-            }
-          }.resume()
+            URLSession.shared.dataTask(with: request) { data, response, error in
+                if let data = data, let result = try? JSONDecoder().decode(Item.self, from:data) {
+                    DispatchQueue.main.async {
+                        self.user = result.user
+                    }
+                }
+            }.resume()
         } else {
-          print("Invalid URL")
+            print("Invalid URL")
         }
     }
 }

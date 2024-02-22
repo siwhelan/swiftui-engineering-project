@@ -10,14 +10,14 @@ import SwiftUI
 
 struct MyProfilePageView: View {
     let layout = [
-        GridItem(.flexible(minimum: 75)),
-        GridItem(.flexible(minimum: 150))
+        GridItem(.flexible(minimum: 5)),
+        GridItem(.flexible(minimum: 175))
     ]
     
     @ObservedObject var postsModel = PostsView()
     @ObservedObject var loggedinUserModel = LoggedInUser()
- 
-  
+    @ObservedObject var postOwnerModel = PostUser()
+
     
     var body: some View {
         ZStack {
@@ -26,8 +26,16 @@ struct MyProfilePageView: View {
                 
                 Text("My Profile")
                     .font(.largeTitle)
+
                     .bold()
                     .padding(.bottom, 20)
+
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 200, height: 50)
+                    .background(.black)
+                    .cornerRadius(30.0)
+
                     .accessibilityIdentifier("titleText")
                 
                 if let avatarImage = UIImage(named: "default_avatar.png") {
@@ -51,11 +59,11 @@ struct MyProfilePageView: View {
                 
                     
                     LazyVGrid(columns: layout, alignment: .center, content: {
-                        Text("Username:")
+                        Text("Username:").font(.headline)
                         Text(loggedinUserModel.user?.username ?? "")
                         Text("")
                         Text("")
-                        Text("Email: ")
+                        Text("Email: ").font(.headline)
                         Text(loggedinUserModel.user?.email ?? "")
                     }).onAppear{
                         loggedinUserModel.fetchUser()
@@ -63,13 +71,27 @@ struct MyProfilePageView: View {
                 
                 
                 Spacer()
-                Text("Posts").font(.title)
+                Text("Posts")
+                    .font(.title)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(width: 100, height: 35)
+                    .background(.black)
+                    .cornerRadius(30.0)
+                    .accessibilityIdentifier("titleText")
                 List{
                     ForEach(postsModel.posts) {post in
                         if post.createdBy == loggedinUserModel.user?._id {
                             ScrollView {
                                 VStack(alignment: .leading) {
                                     Text(post.message)
+                                    Spacer()
+                                    HStack{
+                                        Text(postOwnerModel.postOwner?.username ?? "").font(.footnote).onAppear{postOwnerModel.fetchPostUser(userId: post.createdBy)}
+                                        Spacer()
+                                        Text(convertDateFormat(inputDate: post.createdAt)).font(.footnote)
+                                    }
+                                    
                                 }
                             }
                         }
@@ -77,7 +99,11 @@ struct MyProfilePageView: View {
                     }
                 }
                 .onAppear {
-                    postsModel.fetchPosts()
+
+                        postsModel.fetchPosts()
+                    
+                    }
+
                 }
             }
         }

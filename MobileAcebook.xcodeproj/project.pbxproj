@@ -8,14 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		130052BB2B83BDE4004ACBC7 /* LogoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130052BA2B83BDE4004ACBC7 /* LogoutView.swift */; };
+		130D27172B8659FD0059289C /* CreatePostService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130D27162B8659FD0059289C /* CreatePostService.swift */; };
 		139F5F252B86156600F943A8 /* LogoutService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139F5F242B86156600F943A8 /* LogoutService.swift */; };
 		13B33CD02B8507D500D9947F /* NavigationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B33CCF2B8507D500D9947F /* NavigationTabView.swift */; };
 		13B33CD62B85E58700D9947F /* PostPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B33CD52B85E58700D9947F /* PostPageView.swift */; };
 		13B33CD82B85E76300D9947F /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B33CD72B85E76300D9947F /* CreatePostView.swift */; };
-		13B33CDA2B85EFF100D9947F /* ProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B33CD92B85EFF100D9947F /* ProfilePageView.swift */; };
 		A68236F72B85F2840061DD2B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68236F62B85F2840061DD2B /* Post.swift */; };
 		A68236F92B85F2BB0061DD2B /* GetPostsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68236F82B85F2BB0061DD2B /* GetPostsService.swift */; };
 		A68236FD2B86369E0061DD2B /* LoggedInUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68236FC2B86369E0061DD2B /* LoggedInUserService.swift */; };
+		A68236FF2B864FB80061DD2B /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68236FE2B864FB80061DD2B /* DateFormatter.swift */; };
 		A6C7F03C2B83AEF10078F253 /* MyProfilePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C7F03B2B83AEF10078F253 /* MyProfilePageView.swift */; };
 		AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */; };
 		AE5D85B42AC8A224009680C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE5D85B32AC8A224009680C6 /* Assets.xcassets */; };
@@ -29,8 +30,12 @@
 		AE5D85E32AC9AFD2009680C6 /* MockAuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */; };
 		AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */; };
 		AE5D85E82AC9B29A009680C6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5D85E72AC9B29A009680C6 /* User.swift */; };
+
+		B543386E2B83BC46003C9A94 /* SignUpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543386D2B83BC46003C9A94 /* SignUpPageView.swift */; };
+
 		C4C075BC2B83B34100A1CBA9 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C075BB2B83B34100A1CBA9 /* LoginPageView.swift */; };
 		C4C075C72B84F68900A1CBA9 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C075C62B84F68900A1CBA9 /* LoginService.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,14 +57,15 @@
 
 /* Begin PBXFileReference section */
 		130052BA2B83BDE4004ACBC7 /* LogoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutView.swift; sourceTree = "<group>"; };
+		130D27162B8659FD0059289C /* CreatePostService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostService.swift; sourceTree = "<group>"; };
 		139F5F242B86156600F943A8 /* LogoutService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutService.swift; sourceTree = "<group>"; };
 		13B33CCF2B8507D500D9947F /* NavigationTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTabView.swift; sourceTree = "<group>"; };
 		13B33CD52B85E58700D9947F /* PostPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostPageView.swift; sourceTree = "<group>"; };
 		13B33CD72B85E76300D9947F /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
-		13B33CD92B85EFF100D9947F /* ProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageView.swift; sourceTree = "<group>"; };
 		A68236F62B85F2840061DD2B /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		A68236F82B85F2BB0061DD2B /* GetPostsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPostsService.swift; sourceTree = "<group>"; };
 		A68236FC2B86369E0061DD2B /* LoggedInUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInUserService.swift; sourceTree = "<group>"; };
+		A68236FE2B864FB80061DD2B /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		A6C7F03B2B83AEF10078F253 /* MyProfilePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfilePageView.swift; sourceTree = "<group>"; };
 		AE5D85AC2AC8A221009680C6 /* MobileAcebook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileAcebook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5D85AF2AC8A221009680C6 /* MobileAcebookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileAcebookApp.swift; sourceTree = "<group>"; };
@@ -76,8 +82,12 @@
 		AE5D85E22AC9AFD2009680C6 /* MockAuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAuthenticationService.swift; sourceTree = "<group>"; };
 		AE5D85E52AC9B077009680C6 /* AuthenticationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceProtocol.swift; sourceTree = "<group>"; };
 		AE5D85E72AC9B29A009680C6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+
+		B543386D2B83BC46003C9A94 /* SignUpPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpPageView.swift; sourceTree = "<group>"; };
+
 		C4C075BB2B83B34100A1CBA9 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		C4C075C62B84F68900A1CBA9 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +145,15 @@
 				AE5D85B32AC8A224009680C6 /* Assets.xcassets */,
 				AE5D85B52AC8A224009680C6 /* Preview Content */,
 				AE5D85D92AC8A337009680C6 /* WelcomePageView.swift */,
+
+				B543386D2B83BC46003C9A94 /* SignUpPageView.swift */,
+
 				A6C7F03B2B83AEF10078F253 /* MyProfilePageView.swift */,
 				C4C075BB2B83B34100A1CBA9 /* LoginPageView.swift */,
 				13B33CD52B85E58700D9947F /* PostPageView.swift */,
 				13B33CCF2B8507D500D9947F /* NavigationTabView.swift */,
 				13B33CD72B85E76300D9947F /* CreatePostView.swift */,
-				13B33CD92B85EFF100D9947F /* ProfilePageView.swift */,
+
 			);
 			path = MobileAcebook;
 			sourceTree = "<group>";
@@ -178,9 +191,13 @@
 			children = (
 				AE5D85E02AC9AFA9009680C6 /* AuthenticationService.swift */,
 				A68236F82B85F2BB0061DD2B /* GetPostsService.swift */,
+				130D27162B8659FD0059289C /* CreatePostService.swift */,
 				C4C075C62B84F68900A1CBA9 /* LoginService.swift */,
 				A68236FC2B86369E0061DD2B /* LoggedInUserService.swift */,
 				139F5F242B86156600F943A8 /* LogoutService.swift */,
+
+				A68236FE2B864FB80061DD2B /* DateFormatter.swift */,
+
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -340,19 +357,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A68236FF2B864FB80061DD2B /* DateFormatter.swift in Sources */,
 				13B33CD82B85E76300D9947F /* CreatePostView.swift in Sources */,
 				AE5D85E12AC9AFA9009680C6 /* AuthenticationService.swift in Sources */,
+
+				B543386E2B83BC46003C9A94 /* SignUpPageView.swift in Sources */,
+
 				A6C7F03C2B83AEF10078F253 /* MyProfilePageView.swift in Sources */,
 				A68236F92B85F2BB0061DD2B /* GetPostsService.swift in Sources */,
+
 				AE5D85E62AC9B077009680C6 /* AuthenticationServiceProtocol.swift in Sources */,
 				AE5D85B02AC8A221009680C6 /* MobileAcebookApp.swift in Sources */,
 				AE5D85E82AC9B29A009680C6 /* User.swift in Sources */,
 				A68236F72B85F2840061DD2B /* Post.swift in Sources */,
-				13B33CDA2B85EFF100D9947F /* ProfilePageView.swift in Sources */,
 				139F5F252B86156600F943A8 /* LogoutService.swift in Sources */,
 				13B33CD62B85E58700D9947F /* PostPageView.swift in Sources */,
 				13B33CD02B8507D500D9947F /* NavigationTabView.swift in Sources */,
 				130052BB2B83BDE4004ACBC7 /* LogoutView.swift in Sources */,
+				130D27172B8659FD0059289C /* CreatePostService.swift in Sources */,
 				AE5D85DA2AC8A337009680C6 /* WelcomePageView.swift in Sources */,
 				A68236FD2B86369E0061DD2B /* LoggedInUserService.swift in Sources */,
 				C4C075BC2B83B34100A1CBA9 /* LoginPageView.swift in Sources */,

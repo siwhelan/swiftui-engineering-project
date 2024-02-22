@@ -29,9 +29,8 @@ struct WelcomePageView: View {
                     
                     Spacer()
                     
-                    Button("Sign Up") {
-                        // TODO: sign up logic
-                    }
+                    NavigationLink(destination: SignUpPageView())
+                    { Text("Sign Up") }
                     .accessibilityIdentifier("signUpButton")
                     
                     NavigationLink(destination: LoginPageView()){
@@ -40,6 +39,7 @@ struct WelcomePageView: View {
                     .accessibilityIdentifier("loginButton")
                     
                     Spacer()
+
                 }
             }
         }
