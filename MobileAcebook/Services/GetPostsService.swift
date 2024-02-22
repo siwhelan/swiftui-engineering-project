@@ -34,6 +34,23 @@ class PostsView: ObservableObject {
           print("Invalid URL")
         }
     }
+    
+    func likePost(postId: String) {
+            if let url = URL(string: "http://127.0.0.1:8080/posts/\(postId)/like") {
+              var request = URLRequest(url: url)
+              request.httpMethod = "PUT"
+              request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization")
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+              URLSession.shared.dataTask(with: request) { data, response, error in
+                  if let data = data, let result = String(data: data, encoding: .utf8) {
+                      print(result)
+                }
+              }.resume()
+            } else {
+              print("Invalid URL")
+            }
+        }
 }
 
 struct UserData: Decodable {

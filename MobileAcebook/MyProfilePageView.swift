@@ -18,6 +18,8 @@ struct MyProfilePageView: View {
     @ObservedObject var loggedinUserModel = LoggedInUser()
     @ObservedObject var postOwnerModel = PostUser()
     
+    @State var isPressed = false
+    
     var body: some View {
         ZStack {
             VStack {
@@ -67,9 +69,18 @@ struct MyProfilePageView: View {
                                     Text(post.message)
                                     Spacer()
                                     HStack{
+                                        if post.likes.contains(loggedinUserModel.user?._id ?? "") {
+                                            LikeButton(isPressed: true, postId: post._id)
+                                        } else {
+                                            LikeButton(isPressed: false, postId: post._id)
+                                        }
+//                                        LikeButton().onTapGesture {
+//                                            postsModel.likePost(postId: post._id)
+//                                        }
                                         Text(postOwnerModel.postOwner?.username ?? "").font(.footnote).onAppear{postOwnerModel.fetchPostUser(userId: post.createdBy)}
                                         Spacer()
                                         Text(convertDateFormat(inputDate: post.createdAt)).font(.footnote)
+                                        
                                     }
                                     
                                 }

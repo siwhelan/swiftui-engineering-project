@@ -15,5 +15,5 @@ struct Post: Codable, Identifiable{
     let createdAt: String
     let createdBy: String
 //    let comments:
-//    let likes:
+    let likes: [String]
 }
