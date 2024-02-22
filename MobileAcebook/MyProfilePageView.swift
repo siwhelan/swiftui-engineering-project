@@ -108,7 +108,7 @@ struct MyProfilePageView: View {
             }
         }
     }
-}
+
     
 
 struct MyProfilePageView_Previews: PreviewProvider {
