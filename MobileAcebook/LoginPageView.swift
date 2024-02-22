@@ -22,8 +22,7 @@ struct LoginPageView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    
-                    Text("Acebook")
+                    /*Text("Acebook")
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .padding()
@@ -31,10 +30,10 @@ struct LoginPageView: View {
                         .background(.black)
                         .cornerRadius(30.0)
                         .accessibilityIdentifier("welcomeText")
-                    
+                     */
                     Spacer()
                     
-                    Image("makers-logo")
+                    Image("acebook-logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
