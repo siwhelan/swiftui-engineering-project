@@ -8,9 +8,23 @@
 import Foundation
 import SwiftUI
 
-
 struct PostPageView: View {
+    @ObservedObject var postModel = PostsView()
     var body: some View {
-        Text("Posts Feed")
+        VStack {
+            Text("Posts Feed").font(.title)
+                .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+            List(postModel.posts) { post in
+                Text(post.message)
+            }
+            .onAppear {
+                postModel.fetchPosts()
+            }
+        }
+    }
+}
+struct PostPageView_Previews: PreviewProvider {
+    static var previews: some View {
+        PostPageView()
     }
 }
