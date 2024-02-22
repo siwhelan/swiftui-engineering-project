@@ -5,7 +5,10 @@
 //  Created by Josué Estévez Fernández on 01/10/2023.
 //
 
-public struct User: Decodable {
+import Foundation
+
+public struct User: Decodable, Identifiable {
+    public let id = UUID()
     let username: String
     let _id: String
     let password: String

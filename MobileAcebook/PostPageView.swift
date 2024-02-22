@@ -9,8 +9,12 @@ import Foundation
 import SwiftUI
 
 struct PostPageView: View {
-    @ObservedObject var postModel = PostsView()
-    @ObservedObject var postOwnerModel = PostUser()
+    @ObservedObject private var postModel = PostsView()
+    @ObservedObject private var postOwnerModel = PostUser()
+    @ObservedObject private var loggedinUserModel = LoggedInUser()
+    
+    @State var isPressed = false
+    
     var body: some View {
         VStack {
             Text("Posts Feed")
@@ -18,13 +22,15 @@ struct PostPageView: View {
                 .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
             List(postModel.posts) { post in
                 Text(post.message)
-                
                 HStack{
+                    if post.likes.contains(loggedinUserModel.user?._id ?? "") {
+                        LikeButton(isPressed: true, postId: post._id)
+                    } else {
+                        LikeButton(isPressed: false, postId: post._id)
+                    }
                     Text(postOwnerModel.postOwner?.username ?? "")
                         .font(.footnote)
-                        .onAppear(){
-                            postOwnerModel.fetchPostUser(userId: post.createdBy)
-                        }
+                        .onAppear{postOwnerModel.fetchPostUser(userId: post.createdBy)}
                     Spacer()
                     Text(convertDateFormat(inputDate:
                                             post.createdAt))
@@ -33,6 +39,7 @@ struct PostPageView: View {
         }
             .onAppear {
                 postModel.fetchPosts()
+                loggedinUserModel.fetchUser()
             }
         }
     }
