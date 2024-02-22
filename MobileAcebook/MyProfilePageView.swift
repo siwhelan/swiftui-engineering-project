@@ -10,8 +10,8 @@ import SwiftUI
 
 struct MyProfilePageView: View {
     let layout = [
-        GridItem(.flexible(minimum: 5)),
-        GridItem(.flexible(minimum: 175))
+        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
     
     @ObservedObject var postsModel = PostsView()
@@ -22,21 +22,16 @@ struct MyProfilePageView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
                 
                 Text("My Profile")
                     .font(.largeTitle)
-
-                    .bold()
-                    .padding(.bottom, 20)
-
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 200, height: 50)
                     .background(.black)
-                    .cornerRadius(30.0)
-
+                    .cornerRadius(20.0)
                     .accessibilityIdentifier("titleText")
+                    .padding()
                 
                 if let avatarImage = UIImage(named: "default_avatar.png") {
                     Image(uiImage: avatarImage)
@@ -57,28 +52,31 @@ struct MyProfilePageView: View {
                     }
                 
                 
-                    
-                    LazyVGrid(columns: layout, alignment: .center, content: {
+                    Spacer()
+                    LazyVGrid(columns: layout, alignment: .leading, content: {
                         Text("Username:").font(.headline)
                         Text(loggedinUserModel.user?.username ?? "")
-                        Text("")
-                        Text("")
-                        Text("Email: ").font(.headline)
+                        Text("Email:").font(.headline)
                         Text(loggedinUserModel.user?.email ?? "")
-                    }).onAppear{
+                        Text("Bio: ").font(.headline)
+                        Text("Software Engineer").font(.subheadline)
+                    })
+                    .padding(.horizontal)
+                    .onAppear {
                         loggedinUserModel.fetchUser()
                     }
-                
+                    .padding()
+                    
                 
                 Spacer()
-                Text("Posts")
-                    .font(.title)
-                    .foregroundColor(.white)
-                    .padding()
-                    .frame(width: 100, height: 35)
-                    .background(.black)
-                    .cornerRadius(30.0)
-                    .accessibilityIdentifier("titleText")
+//                Text("Posts")
+//                    .font(.title)
+//                    .fontWeight(.bold)
+//                    .foregroundColor(.black)
+//                    .padding()
+//                    .frame(width: 100, height: 35)
+//
+//                    .accessibilityIdentifier("titleText")
                 List{
                     ForEach(postsModel.posts) {post in
                         if post.createdBy == loggedinUserModel.user?._id {
@@ -108,7 +106,7 @@ struct MyProfilePageView: View {
             }
         }
     }
-}
+
     
 
 struct MyProfilePageView_Previews: PreviewProvider {
