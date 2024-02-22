@@ -17,28 +17,48 @@ struct MyProfilePageView: View {
     @ObservedObject var postsModel = PostsView()
     @ObservedObject var loggedinUserModel = LoggedInUser()
     @ObservedObject var postOwnerModel = PostUser()
+
     
     var body: some View {
         ZStack {
             VStack {
                 Spacer()
-
+                
                 Text("My Profile")
                     .font(.largeTitle)
+
+                    .bold()
+                    .padding(.bottom, 20)
+
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 200, height: 50)
                     .background(.black)
                     .cornerRadius(30.0)
-                    .accessibilityIdentifier("titleText")
 
-                HStack{
-                    Image("makers-logo")
+                    .accessibilityIdentifier("titleText")
+                
+                if let avatarImage = UIImage(named: "default_avatar.png") {
+                    Image(uiImage: avatarImage)
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 75, height: 100)
-                        .accessibilityIdentifier("profile-picturem")
-                    LazyVGrid(columns: layout, alignment: .leading, content: {
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .accessibilityIdentifier("profile-picture")
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .foregroundColor(.gray)
+                    }
+                
+                
+                    
+                    LazyVGrid(columns: layout, alignment: .center, content: {
                         Text("Username:").font(.headline)
                         Text(loggedinUserModel.user?.username ?? "")
                         Text("")
@@ -48,8 +68,8 @@ struct MyProfilePageView: View {
                     }).onAppear{
                         loggedinUserModel.fetchUser()
                     }
-        
-                }
+                
+                
                 Spacer()
                 Text("Posts")
                     .font(.title)
@@ -79,13 +99,17 @@ struct MyProfilePageView: View {
                     }
                 }
                 .onAppear {
+
                         postsModel.fetchPosts()
                     
                     }
+
                 }
             }
         }
     }
+}
+    
 
 struct MyProfilePageView_Previews: PreviewProvider {
     static var previews: some View {
