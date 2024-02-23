@@ -11,36 +11,45 @@ struct WelcomePageView: View {
     var body: some View {
         NavigationView{
             ZStack {
+                
                 VStack {
-                    Spacer()
-                    
-                    Text("Welcome to Acebook!")
-                        .font(.largeTitle)
-                        .padding(.bottom, 20)
-                        .accessibilityIdentifier("welcomeText")
-                     
+
                     
                     //Spacer()
                     
-                    Image("acebook-logo")
+
+                    Image("Acebook-logo")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .accessibilityIdentifier("acebook-logo")
+                        .frame(width: 400, height: 400)
+                        .accessibilityIdentifier("makers-logo")
+
                     
                     Spacer()
                     
                     NavigationLink(destination: SignUpPageView())
                     { Text("Sign Up") }
-                    .accessibilityIdentifier("signUpButton")
+                        .accessibilityIdentifier("signUpButton")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(width: 300, height: 50)
+                        .background(Color.black)
+                        .cornerRadius(15.0)
+                        .accessibilityIdentifier("loginButton")
                     
                     NavigationLink(destination: LoginPageView()){
                         Text("Login")
                     }
                     .accessibilityIdentifier("loginButton")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .frame(width: 300, height: 50)
+                    .background(Color.black)
+                    .cornerRadius(15.0)
+                    .accessibilityIdentifier("loginButton")
                     
                     Spacer()
-
+                    
                 }
             }
         }

@@ -22,29 +22,27 @@ struct LoginPageView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    /*Text("Acebook")
-                        .font(.largeTitle)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .background(.black)
-                        .cornerRadius(30.0)
-                        .accessibilityIdentifier("welcomeText")
-                     */
+
+                    
+                    
+                    
+                    Spacer()
                     Spacer()
                     
-                    Image("acebook-logo")
+                    Image("Acebook-logo")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .accessibilityIdentifier("makers-logo")
+                        .frame(width: 350, height: 200)
+                        .accessibilityIdentifier("Acebook-logo")
+                    Spacer()
+                    
                     
                     Text("Please enter your details")
-                        .font(.caption)
+                        .font(.body)
                         .bold()
                     
                     Spacer()
-                    Spacer()
+                    
                     
                     
                     VStack(alignment: .leading, spacing: 15) {
