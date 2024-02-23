@@ -14,7 +14,7 @@ func convertDateFormat(inputDate: String) -> String {
     guard let oldDate = oldFormat.date(from: inputDate) else { return "" }
     
     let newDateFormat = DateFormatter()
-    newDateFormat.dateFormat = "dd MMM yyy h:mm a"
+    newDateFormat.dateFormat = "MMM dd HH:mm"
     return newDateFormat.string(from: oldDate)
 }
 
