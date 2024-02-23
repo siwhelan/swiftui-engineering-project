@@ -13,14 +13,17 @@ struct WelcomePageView: View {
             ZStack {
                 
                 VStack {
+
                     
-                    Spacer()
+                    //Spacer()
                     
+
                     Image("Acebook-logo")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 400, height: 400)
                         .accessibilityIdentifier("makers-logo")
+
                     
                     Spacer()
                     
