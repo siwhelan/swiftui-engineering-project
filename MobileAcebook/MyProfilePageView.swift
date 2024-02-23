@@ -51,34 +51,81 @@ struct MyProfilePageView: View {
                 
                 
                     Spacer()
+                HStack{
+                    
+                    Spacer()
+                    
                     LazyVGrid(columns: layout, alignment: .leading, content: {
-                        Text("Username:").font(.headline).foregroundColor(.white).padding()
+                        
+                        VStack(alignment: .leading){
+                            
+                            
+                            RoundedRectangle(cornerRadius: 20).fill(.black)
+                                .frame(width: 350, height: 50)
+                                .overlay( HStack{
+                                    
+                                    Text("Username:").font(.headline).foregroundColor(.white)
+                                        .padding(.leading)
+                                        
+                                        
+                                    Spacer()
+                                    
+                                    Text(loggedinUserModel.user?.username ?? "")
+                                        .foregroundColor(.white)
+                                        .padding(.trailing)
+                                    
+                                    
+                                })
+                            RoundedRectangle(cornerRadius: 20).fill(.black)
+                                .frame(width: 350, height: 50)
+                                .overlay( HStack{
+                                    Text("Email:").font(.headline).foregroundColor(.white)
+                                        .padding(.leading)
+                                    
+                                    Spacer()
+                                    
+                                    Text(loggedinUserModel.user?.email ?? "")
+                                        .foregroundColor(.white)
+                                        .padding(.trailing)
+                                        
+                                })
+                            
+                            RoundedRectangle(cornerRadius: 20).fill(.black)
+                                .frame(width: 350, height: 50)
+                                .overlay( HStack{
+                                    Text("Bio: ").font(.headline).foregroundColor(.white)
+                                        .padding(.leading)
+                                    
+                                    Spacer()
+                                    
+                                    Text("Software Engineer").font(.subheadline).foregroundColor(.white)
+                                        .padding(.trailing)
+                                })
+                            
+                        }}
                               
-                        Text(loggedinUserModel.user?.username ?? "")
-                        Text("Email:").font(.headline).foregroundColor(.white)
-                        Text(loggedinUserModel.user?.email ?? "")
-                        Text("Bio: ").font(.headline).foregroundColor(.white)
-                        Text("Software Engineer").font(.subheadline).foregroundColor(.white)
-                    })
+                    )
+                    .padding(.trailing, 320) // Add padding to push the LazyVGrid towards the right
+                        Spacer()
+                }
                     .padding(.horizontal)
                     .onAppear {
                         loggedinUserModel.fetchUser()
                     }
                     .padding()
                     
+               
                 
-                Spacer()
-//                Text("Posts")
-//                    .font(.title)
-//                    .fontWeight(.bold)
-//                    .foregroundColor(.black)
-//                    .padding()
-//                    .frame(width: 100, height: 35)
-//
-//                    .accessibilityIdentifier("titleText")
+                Text("Posts")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .foregroundColor(.black)
+                    .padding()
+                   .accessibilityIdentifier("PostTitle")
                 List{
                     ForEach(postsModel.posts) {post in
                         if post.createdBy == loggedinUserModel.user?._id {
+                            
                             ScrollView {
                                 VStack(alignment: .leading) {
                                     Text(post.message)
@@ -95,6 +142,7 @@ struct MyProfilePageView: View {
                         
                     }
                 }
+                .listStyle(PlainListStyle())
                 .onAppear {
 
                         postsModel.fetchPosts()
