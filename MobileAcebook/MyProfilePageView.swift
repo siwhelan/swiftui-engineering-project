@@ -10,8 +10,8 @@ import SwiftUI
 
 struct MyProfilePageView: View {
     let layout = [
-        GridItem(.flexible(minimum: 5)),
-        GridItem(.flexible(minimum: 175))
+        GridItem(.flexible()),
+        GridItem(.flexible())
     ]
     
     @ObservedObject private var postsModel = PostsView()
@@ -21,44 +21,61 @@ struct MyProfilePageView: View {
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
-
+                
                 Text("My Profile")
                     .font(.largeTitle)
                     .foregroundColor(.white)
                     .padding()
                     .frame(width: 200, height: 50)
                     .background(.black)
-                    .cornerRadius(30.0)
+                    .cornerRadius(20.0)
                     .accessibilityIdentifier("titleText")
-
-                HStack{
-                    Image("makers-logo")
+                    .padding()
+                
+                if let avatarImage = UIImage(named: "default_avatar.png") {
+                    Image(uiImage: avatarImage)
                         .resizable()
-                        .scaledToFit()
-                        .frame(width: 75, height: 100)
-                        .accessibilityIdentifier("profile-picturem")
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .accessibilityIdentifier("profile-picture")
+                } else {
+                    Image(systemName: "person.circle.fill")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 150, height: 150)
+                        .clipShape(Circle())
+                        .foregroundColor(.gray)
+                    }
+                
+                
+                    Spacer()
                     LazyVGrid(columns: layout, alignment: .leading, content: {
                         Text("Username:").font(.headline)
                         Text(loggedinUserModel.user?.username ?? "")
-                        Text("")
-                        Text("")
-                        Text("Email: ").font(.headline)
+                        Text("Email:").font(.headline)
                         Text(loggedinUserModel.user?.email ?? "")
-                    }).onAppear{
+                        Text("Bio: ").font(.headline)
+                        Text("Software Engineer").font(.subheadline)
+                    })
+                    .padding(.horizontal)
+                    .onAppear {
                         loggedinUserModel.fetchUser()
                     }
-        
-                }
-                Spacer()
-                Text("Posts")
-                    .font(.title)
-                    .foregroundColor(.white)
                     .padding()
-                    .frame(width: 100, height: 35)
-                    .background(.black)
-                    .cornerRadius(30.0)
-                    .accessibilityIdentifier("titleText")
+                    
+                
+                Spacer()
+//                Text("Posts")
+//                    .font(.title)
+//                    .fontWeight(.bold)
+//                    .foregroundColor(.black)
+//                    .padding()
+//                    .frame(width: 100, height: 35)
+//
+//                    .accessibilityIdentifier("titleText")
                 List{
                     ForEach(postsModel.posts) {post in
                         if post.createdBy == loggedinUserModel.user?._id {
@@ -79,13 +96,17 @@ struct MyProfilePageView: View {
                     }
                 }
                 .onAppear {
+
                         postsModel.fetchPosts()
                     
                     }
+
                 }
             }
         }
     }
+
+    
 
 struct MyProfilePageView_Previews: PreviewProvider {
     static var previews: some View {

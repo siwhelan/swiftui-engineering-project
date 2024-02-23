@@ -6,10 +6,16 @@
 //
 
 import Foundation
+import PhotosUI
 
 class LoggedInUser: ObservableObject {
     @Published var user: User?
+
+
     var token = retrieveTokenFromKeychain()?.token
+
+    
+    
     
     func fetchUser() {
         if let url = URL(string: "http://127.0.0.1:8080/posts") {
@@ -30,3 +36,6 @@ class LoggedInUser: ObservableObject {
         }
     }
 }
+
+
+

@@ -189,7 +189,9 @@
 				C4C075C62B84F68900A1CBA9 /* LoginService.swift */,
 				A68236FC2B86369E0061DD2B /* LoggedInUserService.swift */,
 				139F5F242B86156600F943A8 /* LogoutService.swift */,
+
 				A68236FE2B864FB80061DD2B /* DateFormatter.swift */,
+
 			);
 			path = Services;
 			sourceTree = "<group>";
