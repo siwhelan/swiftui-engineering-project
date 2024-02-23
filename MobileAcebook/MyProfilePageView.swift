@@ -14,10 +14,9 @@ struct MyProfilePageView: View {
         GridItem(.flexible())
     ]
     
-    @ObservedObject var postsModel = PostsView()
-    @ObservedObject var loggedinUserModel = LoggedInUser()
-    @ObservedObject var postOwnerModel = PostUser()
-
+    @ObservedObject private var postsModel = PostsView()
+    @ObservedObject private var loggedinUserModel = LoggedInUser()
+    @ObservedObject private var postOwnerModel = PostUser()
     
     var body: some View {
         ZStack {

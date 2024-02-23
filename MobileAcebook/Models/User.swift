@@ -6,7 +6,10 @@
 //
 import Foundation
 
-public struct User: Decodable {
+import Foundation
+
+public struct User: Decodable, Identifiable {
+    public let id = UUID()
     let username: String
     let _id: String
     let password: String
