@@ -24,11 +24,13 @@ struct MyProfilePageView: View {
                 
                 Text("My Profile")
                     .font(.largeTitle)
-                    .foregroundColor(.black).bold()
+                    .foregroundColor(.white)
                     .padding()
+                    .frame(width: 200, height: 50)
+                    .background(.black)
                     .cornerRadius(20.0)
                     .accessibilityIdentifier("titleText")
-                    
+                    .padding()
                 
                 if let avatarImage = UIImage(named: "default_avatar.png") {
                     Image(uiImage: avatarImage)
@@ -51,13 +53,12 @@ struct MyProfilePageView: View {
                 
                     Spacer()
                     LazyVGrid(columns: layout, alignment: .leading, content: {
-                        Text("Username:").font(.headline).foregroundColor(.white).padding()
-                              
+                        Text("Username:").font(.headline)
                         Text(loggedinUserModel.user?.username ?? "")
-                        Text("Email:").font(.headline).foregroundColor(.white)
+                        Text("Email:").font(.headline)
                         Text(loggedinUserModel.user?.email ?? "")
-                        Text("Bio: ").font(.headline).foregroundColor(.white)
-                        Text("Software Engineer").font(.subheadline).foregroundColor(.white)
+                        Text("Bio: ").font(.headline)
+                        Text("Software Engineer").font(.subheadline)
                     })
                     .padding(.horizontal)
                     .onAppear {
@@ -112,3 +113,4 @@ struct MyProfilePageView_Previews: PreviewProvider {
         MyProfilePageView()
     }
 }
+
